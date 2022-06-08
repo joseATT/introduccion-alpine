@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpine 101</title>
+    <link rel="stylesheet" href="./css/tailwind.css" />
+    <link rel="stylesheet" href="./css/boxicons-2.1.2/css/boxicons.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <script defer src="./js/alpine.js"></script>
+  </head>
+  <body>
+    <div x-data="{ nombre: 'Tepec' }" class="container p-6">
+      <h1 class="text-blue-600 text-3x1 font-semibold mb-4">Hola Alpine</h1>
+
+      <div class="input-wrapper">
+        <label for="nombre">Escribe tu nombre</label>
+        <input
+          type="text"
+          name="nombre"
+          id="nombre"
+          placeholder="nombre..."
+          class="border border-blue-600 focus:outline-none focus:boder-sky-500 focus:ring-1 focus:ring-sky-500"
+          x-model="nombre"
+        />
+        <p>Hola <span x-text="nombre"></span>, bienvenid@ a Alpine JS</p>
+      </div>
+      <div x-data="tabApp" class="container">
+        <button type="submit" x-on:click="selectedTab=0">tab 1</button>
+        <button type="submit" x-on:click="selectedTab=1">tab 2</button>
+        <button type="submit" x-on:click="selectedTab=2">tab 3</button>
+        <p x-show="selectedTab===0">Hola Alpine</p>
+        <p x-show="selectedTab===1">Hola</p>
+        <p x-show="selectedTab===2">Alpine</p>
+      </div>
+    </div>
+    <script src="./js/main.js"></script>
+    <script src="./js/tabapp.js"></script>
+  </body>
+</html>
